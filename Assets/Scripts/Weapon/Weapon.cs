@@ -4,6 +4,7 @@ public class Weapon : MonoBehaviour
 {
     protected int Damage { get; set; } = 20;
     [SerializeField] private ParticleSystem _fireParticle;
+    [SerializeField] private AudioSource _fireSound;
 
     public void Update()
     {
@@ -16,6 +17,7 @@ public class Weapon : MonoBehaviour
     {
         Debug.Log("Shoot");
         _fireParticle.Play();
+        _fireSound.Play();
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
