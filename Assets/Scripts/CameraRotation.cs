@@ -4,7 +4,7 @@ public class CameraRotation : MonoBehaviour
 {
     [SerializeField] private Transform _playerOrientation;
 
-    private float _mouseSensitivity = 300f;
+    private float _mouseSensitivity = 500f;
 
     private float _xCameraRotation = 0f;
     private float _yCameraRotation = 0f;
@@ -23,7 +23,6 @@ public class CameraRotation : MonoBehaviour
         _xCameraRotation = Mathf.Clamp(_xCameraRotation, -90f, 90f);
 
         _yCameraRotation += mouseX;
-        //_yCameraRotation = Mathf.Clamp(_yCameraRotation, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(_xCameraRotation, _yCameraRotation, 0f);
         _playerOrientation.localRotation = Quaternion.Euler(0, _yCameraRotation, 0);
