@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     protected int Damage { get; set; } = 20;
+    [SerializeField] private ParticleSystem _fireParticle;
 
     public void Update()
     {
@@ -14,6 +15,7 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         Debug.Log("Shoot");
+        _fireParticle.Play();
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
