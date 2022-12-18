@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class Essence : MonoBehaviour
+public class Essence : MonoBehaviour, IHitable
 {
-    private int _health = 100;
+    [SerializeField] private int _health = 100;
+
+    public int Health => _health;
 
     public void ApplyDamage(int damage)
     {
@@ -14,7 +16,7 @@ public class Essence : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Destroy(gameObject);
     }

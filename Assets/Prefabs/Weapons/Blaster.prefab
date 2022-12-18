@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireParticle: {fileID: 999635664}
   _fireSound: {fileID: 540866211546498338}
+  WeaponData: {fileID: 11400000, guid: c2af5ff5f5b903347b067e6dbc499a08, type: 2}
 --- !u!1 &2835574706411107537
 GameObject:
   m_ObjectHideFlags: 0

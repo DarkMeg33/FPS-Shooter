@@ -2,36 +2,26 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    protected int Damage { get; set; } = 20;
     [SerializeField] private ParticleSystem _fireParticle;
     [SerializeField] private AudioSource _fireSound;
+    [SerializeField] protected WeaponData WeaponData;
 
-    public void Update()
+    public void Shoot(Vector3 origin, Vector3 direction)
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
-    }
-    public void Shoot()
-    {
-        Debug.Log("Shoot");
         _fireParticle.Play();
         _fireSound.Play();
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 1000f))
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, 1000f))
         {
             Debug.Log("Hit");
-            Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 3600f);
-            
-            Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+            Debug.DrawRay(origin, direction * 100f, Color.yellow, 3600f);
+
+            IHitable enemy = hit.transform.gameObject.GetComponentInParent<IHitable>();
 
             if (enemy != null)
             {
                 Debug.Log($"{nameof(enemy)}");
-                enemy.ApplyDamage(Damage);
+                enemy.ApplyDamage(WeaponData.Damage);
             }
         }
     }
