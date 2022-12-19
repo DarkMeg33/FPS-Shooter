@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1539328661382811055}
   - component: {fileID: 4565474022252219296}
   - component: {fileID: 7759416091675175299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Container_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4746768009564493122}
   - component: {fileID: 6009390095743714743}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 335927796344350415}
   - component: {fileID: 5609544170875189947}
   - component: {fileID: 1792111409673895816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Container_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6204745110756938749}
   - component: {fileID: 2112867639438877670}
   - component: {fileID: 726115632562961368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 663340079001185894}
   - component: {fileID: 8321047791686372785}
   - component: {fileID: 1854765337494471530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Container_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4514374168473317668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh_Weapon_Primary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 6864879747620049721}
   - component: {fileID: 2505717414880086451}
   - component: {fileID: 8924416693899166290}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Front_Piece_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 5576117723356277479}
   - component: {fileID: 6024829625030135300}
   - component: {fileID: 6431573148384205972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Container_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063452455739739456}
   - component: {fileID: 540866211546498338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4b0be0babd908741a9b607baf456503, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 5592714496195581613}
   - component: {fileID: 621139060346684019}
   - component: {fileID: 3588390248054631948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Primary_Weapon_Front_Piece_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,6 +794,10 @@ PrefabInstance:
     - target: {fileID: 1982643042460557738, guid: afa328319c23da7479c2252319c98ec5, type: 3}
       propertyPath: m_Name
       value: MuzzleFlashParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982643042460557738, guid: afa328319c23da7479c2252319c98ec5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1982643042460557739, guid: afa328319c23da7479c2252319c98ec5, type: 3}
       propertyPath: m_MaxParticleSize

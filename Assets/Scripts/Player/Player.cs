@@ -4,8 +4,6 @@ public class Player : Essence
 {
     [SerializeField] private Inventory _inventory;
 
-    [SerializeField] private Weapon _weapon;
-
     public void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -24,9 +22,9 @@ public class Player : Essence
 
     }
 
-    public void Shoot()
+    public override void Shoot()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        _weapon.Shoot(ray.origin, ray.direction);
+        Weapon.Shoot(ray.origin, ray.direction);
     }
 }

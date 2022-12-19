@@ -3,6 +3,7 @@ using UnityEngine;
 public class Essence : MonoBehaviour, IHitable
 {
     [SerializeField] private int _health = 100;
+    [SerializeField] protected Weapon Weapon;
 
     public int Health => _health;
 
@@ -10,7 +11,7 @@ public class Essence : MonoBehaviour, IHitable
     {
         _health -= damage;
 
-        if (_health < 0)
+        if (_health <= 0)
         {
             Die();
         }
@@ -20,4 +21,6 @@ public class Essence : MonoBehaviour, IHitable
     {
         Destroy(gameObject);
     }
+
+    public virtual void Shoot() {}
 }
