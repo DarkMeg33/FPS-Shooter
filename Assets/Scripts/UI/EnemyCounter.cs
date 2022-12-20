@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCounter : MonoBehaviour
 {
@@ -17,5 +18,13 @@ public class EnemyCounter : MonoBehaviour
     {
         _enemyCount--;
         EnemyText.text = $"Enemy count: {_enemyCount}";
+
+        if (_enemyCount == 0)
+        {
+            var winCount = PlayerPrefs.GetInt("WinCount");
+            PlayerPrefs.SetInt("WinCount", ++winCount);
+
+            SceneManager.LoadScene("Win Scene");
+        }
     }
 }

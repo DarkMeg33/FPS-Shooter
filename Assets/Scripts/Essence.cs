@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Essence : MonoBehaviour, IHitable
+public abstract class Essence : MonoBehaviour, IHitable
 {
     [SerializeField] private int _health = 100;
     [SerializeField] protected Weapon Weapon;
@@ -17,10 +17,13 @@ public class Essence : MonoBehaviour, IHitable
         }
     }
 
-    public virtual void Die()
+    public void Die()
     {
         Destroy(gameObject);
+        DieCallback();
     }
 
-    public virtual void Shoot() {}
+    public abstract void DieCallback();
+
+    public abstract void Shoot();
 }

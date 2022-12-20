@@ -55,6 +55,11 @@ public class Enemy : Essence
         _isAttacking = false;
     }
 
+    public override void DieCallback()
+    {
+        EventManager.OnEnemyKilled.Invoke();
+    }
+
     public override void Shoot()
     {
         Weapon.Shoot(transform.position, transform.forward);

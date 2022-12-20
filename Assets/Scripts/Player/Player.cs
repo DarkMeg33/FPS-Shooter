@@ -28,7 +28,7 @@ public class Player : Essence
         Weapon.Shoot(ray.origin, ray.direction);
     }
 
-    public override void Die()
+    public override void DieCallback()
     {
         if (gameObject.GetComponent<Player>() != null)
         {
