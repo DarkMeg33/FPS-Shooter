@@ -22,6 +22,11 @@ public class Weapon : MonoBehaviour
             {
                 Debug.Log($"{nameof(enemy)}");
                 enemy.ApplyDamage(WeaponData.Damage);
+
+                if (enemy is Player)
+                {
+                    EventManager.OnPlayerDamaged.Invoke(WeaponData.Damage);
+                }
             }
         }
     }

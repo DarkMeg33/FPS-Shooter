@@ -27,4 +27,12 @@ public class Player : Essence
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Weapon.Shoot(ray.origin, ray.direction);
     }
+
+    public override void Die()
+    {
+        if (gameObject.GetComponent<Player>() != null)
+        {
+            EventManager.OnPlayerDied.Invoke();
+        }
+    }
 }

@@ -17,7 +17,7 @@ public class Essence : MonoBehaviour, IHitable
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }
