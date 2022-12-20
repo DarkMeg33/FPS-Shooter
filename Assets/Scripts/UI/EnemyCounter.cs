@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMPro.TextMeshProUGUI EnemyText;
+
+    private int _enemyCount;
+
+    public void Awake()
     {
-        
+        _enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        EnemyText.text = $"Enemy count: {_enemyCount}";
+        EventManager.OnEnemyKilled.AddListener(DecreaseEnemyCount);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DecreaseEnemyCount()
     {
-        
+        _enemyCount--;
+        EnemyText.text = $"Enemy count: {_enemyCount}";
     }
 }
