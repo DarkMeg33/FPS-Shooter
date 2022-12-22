@@ -28,12 +28,10 @@ public class WeaponSwitcher : MonoBehaviour
         EventManager.OnWeaponChanged.Invoke(GetWeaponFromInventory(weaponIndex));
     }
 
-    public Weapon GetWeaponFromInventory(int weaponIndex)
+    public WeaponData GetWeaponFromInventory(int weaponIndex)
     {
         var weaponData = _inventory.Weapons[weaponIndex];
 
-        var weapon = weaponData.WeaponPrefab.GetComponent<Weapon>();
-
-        return weapon;
+        return weaponData;
     }
 }

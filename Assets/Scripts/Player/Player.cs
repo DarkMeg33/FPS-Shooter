@@ -17,10 +17,10 @@ public class Player : Essence
         }
     }
 
-    public void SwitchWeapon(Weapon weapon)
+    public void SwitchWeapon(WeaponData weaponData)
     {
         Destroy(Weapon.gameObject);
-        Weapon = Instantiate(weapon.gameObject, WeaponHolder).GetComponent<Weapon>();
+        Weapon = Instantiate(weaponData.WeaponPrefab, WeaponHolder).GetComponent<Weapon>();
     }
 
     public override void Shoot()

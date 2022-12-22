@@ -8,5 +8,5 @@ public class EventManager : MonoBehaviour
     public static UnityEvent OnEnemyKilled = new UnityEvent();
     public static UnityEvent<GameObject> OnMessageDisplay = new UnityEvent<GameObject>();
 
-    public static UnityEvent<Weapon> OnWeaponChanged = new UnityEvent<Weapon>();
+    public static UnityEvent<WeaponData> OnWeaponChanged = new UnityEvent<WeaponData>();
 }
