@@ -4,6 +4,11 @@ public class Player : Essence
 {
     [SerializeField] private Inventory _inventory;
 
+    public void Awake()
+    {
+        EventManager.OnWeaponChanged.AddListener(SwitchWeapon);
+    }
+
     public void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -12,14 +17,10 @@ public class Player : Essence
         }
     }
 
-    public void Start()
+    public void SwitchWeapon(Weapon weapon)
     {
-        WeaponSwitcher.OnWeaponChanged.AddListener(SwitchWeapon);
-    }
-
-    public void SwitchWeapon(int weaponIndex)
-    {
-
+        Destroy(Weapon.gameObject);
+        Weapon = Instantiate(weapon.gameObject, WeaponHolder).GetComponent<Weapon>();
     }
 
     public override void Shoot()

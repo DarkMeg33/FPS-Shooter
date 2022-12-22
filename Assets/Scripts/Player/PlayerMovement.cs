@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform _orientation;
 
-    private Animator _animator;
+    //private Animator _animator;
 
     private Rigidbody _rb;
 
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _moveDirection;
     
     [SerializeField] private float _groundDrag;
-    public bool _isGrounded;
+    private bool _isGrounded;
 
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _jumpCooldown;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _rb.drag = _groundDrag;
 
-            _animator.SetBool(_animIdIsGrounded, _isGrounded);
+            //_animator.SetBool(_animIdIsGrounded, _isGrounded);
         }
     }
 
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = false;
             _rb.drag = 0;
 
-            _animator.SetBool(_animIdIsGrounded, _isGrounded);
+            //_animator.SetBool(_animIdIsGrounded, _isGrounded);
         }
     }
 
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
-        _animator = GetComponent<Animator>();
+        //_animator = GetComponent<Animator>();
 
         SetAnimationIDs();
     }
@@ -142,8 +142,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float currentHorizontalSpeed = new Vector3(_rb.velocity.x, 0.0f, _rb.velocity.z).magnitude;
-        _animator.SetFloat(_animIdSpeed, currentHorizontalSpeed);
-        _animator.SetFloat(_animIdMotionSpeed, 1f);
+        //_animator.SetFloat(_animIdSpeed, currentHorizontalSpeed);
+        //_animator.SetFloat(_animIdMotionSpeed, 1f);
     }
 
     private void Jump()
@@ -152,13 +152,13 @@ public class PlayerMovement : MonoBehaviour
         _canJump = false;
         _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
 
-        _animator.SetBool(_animIdIsJumping, !_canJump);
+        //_animator.SetBool(_animIdIsJumping, !_canJump);
     }
 
     private void ResetJump()
     {
         _canJump = true;
 
-        _animator.SetBool(_animIdIsJumping, !_canJump);
+        //_animator.SetBool(_animIdIsJumping, !_canJump);
     }
 }

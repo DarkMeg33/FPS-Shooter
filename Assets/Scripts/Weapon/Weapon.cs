@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _fireParticle;
-    [SerializeField] private AudioSource _fireSound;
+    private AudioSource _audioSource;
     [SerializeField] protected WeaponData WeaponData;
+
+    private void Awake()
+    {
+       _audioSource = gameObject.AddComponent<AudioSource>();
+       _audioSource.playOnAwake = false;
+       _audioSource.clip = WeaponData.FireSound;
+    }
 
     public void Shoot(Vector3 origin, Vector3 direction)
     {
-        _fireParticle.Play();
-        _fireSound.Play();
+        _audioSource.Play();
+        WeaponData.FireParticle.Play();
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, 1000f))
         {

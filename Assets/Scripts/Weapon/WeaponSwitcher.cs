@@ -3,18 +3,37 @@ using UnityEngine.Events;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    public static UnityEvent<int> OnWeaponChanged { get; set; } = new UnityEvent<int>();
+    [SerializeField] private Inventory _inventory;
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("Weapon switched");
+            SwitchWeapon(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchWeapon(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchWeapon(2);
         }
     }
 
-    public void SwitchWeapon()
+    public void SwitchWeapon(int weaponIndex)
     {
+        EventManager.OnWeaponChanged.Invoke(GetWeaponFromInventory(weaponIndex));
+    }
 
+    public Weapon GetWeaponFromInventory(int weaponIndex)
+    {
+        var weaponData = _inventory.Weapons[weaponIndex];
+
+        var weapon = weaponData.WeaponPrefab.GetComponent<Weapon>();
+
+        return weapon;
     }
 }
