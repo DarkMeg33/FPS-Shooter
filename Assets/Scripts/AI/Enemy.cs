@@ -16,7 +16,7 @@ public class Enemy : Essence
 
     private void Awake()
     {
-        _player = GameObject.Find("Player").transform;
+        _player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()
