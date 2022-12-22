@@ -15,6 +15,8 @@ MonoBehaviour:
   _weaponName: Blaster
   _icon: {fileID: 21300000, guid: ef381fc385c923b41be0700b326bf3cb, type: 3}
   _damage: 20
+  _totalBulletsCount: 10
+  _currentBulletsCount: 10
   _fireParticle: {fileID: 1982643042460557748, guid: afa328319c23da7479c2252319c98ec5, type: 3}
   _fireSound: {fileID: 8300000, guid: f4b0be0babd908741a9b607baf456503, type: 3}
   _weaponPrefab: {fileID: 590397275696430642, guid: 62604dbed4124ff4889f3a5607a8ed6c, type: 3}

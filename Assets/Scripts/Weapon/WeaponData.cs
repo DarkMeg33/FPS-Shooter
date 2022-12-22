@@ -7,7 +7,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] private Sprite _icon;
 
     [SerializeField] private int _damage;
-    
+
     [SerializeField] private ParticleSystem _fireParticle;
     [SerializeField] private AudioClip _fireSound;
     [SerializeField] private GameObject _weaponPrefab;
