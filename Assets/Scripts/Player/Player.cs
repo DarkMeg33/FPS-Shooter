@@ -25,8 +25,11 @@ public class Player : Essence
 
     public override void Shoot()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Weapon.Shoot(ray.origin, ray.direction);
+        if (ThirdPersonCam.CamStyle == ThirdPersonCam.CameraStyle.Combat)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Weapon.Shoot(ray.origin, ray.direction);
+        }
     }
 
     public override void DieCallback()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum MovementState
+public enum MovementState
 {
     Walking,
     Sprinting
@@ -11,15 +11,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform _orientation;
 
-    //private Animator _animator;
+    private Animator _animator;
 
     private Rigidbody _rb;
 
+    [Header("Player Speed")] 
     private float _speed;
     public float WalkSpeed = 10;
     public float SprintSpeed = 15;
 
-    private MovementState _state;
+    private MovementState _state = MovementState.Walking;
 
     private float _horizontalInput;
     private float _verticalInput;
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _rb.drag = _groundDrag;
 
-            //_animator.SetBool(_animIdIsGrounded, _isGrounded);
+            _animator?.SetBool(_animIdIsGrounded, _isGrounded);
         }
     }
 
@@ -57,15 +58,16 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = false;
             _rb.drag = 0;
 
-            //_animator.SetBool(_animIdIsGrounded, _isGrounded);
+            _animator?.SetBool(_animIdIsGrounded, _isGrounded);
         }
     }
 
     public void Start()
     {
+        _speed = WalkSpeed;
         _rb = GetComponent<Rigidbody>();
         _rb.freezeRotation = true;
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
 
         SetAnimationIDs();
     }
@@ -100,15 +102,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovementState()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _state = MovementState.Sprinting;
             _speed = SprintSpeed;
+
+            EventManager.OnMovementStateChanged.Invoke(_state);
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _state = MovementState.Walking;
             _speed = WalkSpeed;
+
+            EventManager.OnMovementStateChanged.Invoke(_state);
         }
     }
 
@@ -142,8 +148,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float currentHorizontalSpeed = new Vector3(_rb.velocity.x, 0.0f, _rb.velocity.z).magnitude;
-        //_animator.SetFloat(_animIdSpeed, currentHorizontalSpeed);
-        //_animator.SetFloat(_animIdMotionSpeed, 1f);
+        _animator?.SetFloat(_animIdSpeed, currentHorizontalSpeed);
+        _animator?.SetFloat(_animIdMotionSpeed, 1f);
     }
 
     private void Jump()
@@ -152,13 +158,13 @@ public class PlayerMovement : MonoBehaviour
         _canJump = false;
         _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
 
-        //_animator.SetBool(_animIdIsJumping, !_canJump);
+        _animator?.SetBool(_animIdIsJumping, !_canJump);
     }
 
     private void ResetJump()
     {
         _canJump = true;
 
-        //_animator.SetBool(_animIdIsJumping, !_canJump);
+        _animator?.SetBool(_animIdIsJumping, !_canJump);
     }
 }

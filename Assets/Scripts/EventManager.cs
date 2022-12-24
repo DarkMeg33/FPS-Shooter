@@ -9,4 +9,6 @@ public class EventManager : MonoBehaviour
     public static UnityEvent<GameObject> OnMessageDisplay = new UnityEvent<GameObject>();
 
     public static UnityEvent<WeaponData> OnWeaponChanged = new UnityEvent<WeaponData>();
+    public static UnityEvent<ThirdPersonCam.CameraStyle> OnCameraStyleChanged = new UnityEvent<ThirdPersonCam.CameraStyle>();
+    public static UnityEvent<MovementState> OnMovementStateChanged = new UnityEvent<MovementState>();
 }
