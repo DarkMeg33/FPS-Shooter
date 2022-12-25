@@ -5,6 +5,11 @@ public class WeaponSwitcher : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
 
+    private void Start()
+    {
+        SwitchWeapon(0);
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -7,6 +7,8 @@ public abstract class Essence : MonoBehaviour, IHitable
 
     [SerializeField] protected Transform WeaponHolder;
 
+    protected Animator _animator;
+
     public int Health => _health;
 
     public void ApplyDamage(int damage)

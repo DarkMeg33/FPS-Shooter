@@ -13,7 +13,7 @@ public class Enemy : Essence
     private bool _isAttacking = false;
     private bool _playerInAttackRange = false;
 
-    private Animator _animator;
+    
 
     private int _animIdDying;
     private int _animIdHit;
@@ -76,6 +76,13 @@ public class Enemy : Essence
     public override void Die()
     {
         _animator.SetTrigger(_animIdDying);
+
+        var collider = GetComponentInChildren<Collider>();
+        collider.enabled = false;
+
+        var rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+
         Destroy(this);
 
         DieCallback();

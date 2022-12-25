@@ -7,6 +7,9 @@ public class WeaponData : ScriptableObject
     [SerializeField] private Sprite _icon;
 
     [SerializeField] private int _damage;
+    [SerializeField] private int _bulletsInMagazine;
+
+    [SerializeField] private InventoryAmmoCell _ammoType;
 
     [SerializeField] private ParticleSystem _fireParticle;
     [SerializeField] private AudioClip _fireSound;
@@ -20,4 +23,7 @@ public class WeaponData : ScriptableObject
     public ParticleSystem FireParticle => _fireParticle;
     public GameObject WeaponPrefab => _weaponPrefab;
     public GameObject HitParticle => _hitParticle;
+    public int BulletsInMagazine => _bulletsInMagazine;
+    public InventoryAmmoCell AmmoType => _ammoType;
+    public int CurrentBulletsInMagazine { get; set; }
 }
