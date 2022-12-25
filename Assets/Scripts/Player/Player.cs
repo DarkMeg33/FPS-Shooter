@@ -1,19 +1,29 @@
+using StarterAssets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : Essence
 {
     [SerializeField] private Inventory _inventory;
 
+    private StarterAssetsInputs _inputs;
+
     public void Awake()
     {
         EventManager.OnWeaponChanged.AddListener(SwitchWeapon);
+        _inputs = GetComponent<StarterAssetsInputs>();
     }
 
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (_inputs.shoot)
         {
-            Shoot();
+            if (_inputs.aim)
+            {
+                Shoot();
+            }
+
+            _inputs.shoot = false;
         }
     }
 
@@ -25,11 +35,13 @@ public class Player : Essence
 
     public override void Shoot()
     {
-        if (ThirdPersonCam.CamStyle == ThirdPersonCam.CameraStyle.Combat)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Weapon.Shoot(ray.origin, ray.direction);
-        }
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Weapon.Shoot(ray.origin, ray.direction);
+    }
+
+    public override void ApplyDamageCallback()
+    {
+        
     }
 
     public override void DieCallback()

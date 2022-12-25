@@ -11,6 +11,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] private ParticleSystem _fireParticle;
     [SerializeField] private AudioClip _fireSound;
     [SerializeField] private GameObject _weaponPrefab;
+    [SerializeField] private GameObject _hitParticle;
 
     public string WeaponName => _weaponName;
     public Sprite Icon => _icon;
@@ -18,4 +19,5 @@ public class WeaponData : ScriptableObject
     public AudioClip FireSound => _fireSound;
     public ParticleSystem FireParticle => _fireParticle;
     public GameObject WeaponPrefab => _weaponPrefab;
+    public GameObject HitParticle => _hitParticle;
 }

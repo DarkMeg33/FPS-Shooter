@@ -14,12 +14,12 @@ public class Crosshair : MonoBehaviour
 
     private void ChangeHUD(ThirdPersonCam.CameraStyle cameraStyle)
     {
-        if (ThirdPersonCam.CamStyle == ThirdPersonCam.CameraStyle.Basic)
+        if (cameraStyle == ThirdPersonCam.CameraStyle.Basic)
         {
             _crossHair.gameObject.SetActive(false);
         }
 
-        if (ThirdPersonCam.CamStyle == ThirdPersonCam.CameraStyle.Combat)
+        if (cameraStyle == ThirdPersonCam.CameraStyle.Combat)
         {
             _crossHair.gameObject.SetActive(true);
         }

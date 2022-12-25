@@ -12,11 +12,18 @@ public class Enemy : Essence
     [SerializeField] private float _attackCooldown;
     private bool _isAttacking = false;
     private bool _playerInAttackRange = false;
+
+    private Animator _animator;
+
+    private int _animIdDying;
+    private int _animIdHit;
     
 
     private void Awake()
     {
-        _player = GameObject.FindWithTag("Player").transform;
+        _player = GameObject.FindWithTag("EnemyTarget").transform;
+        _animator = GetComponent<Animator>();
+        SetAnimIDs();
     }
 
     private void Update()
@@ -27,6 +34,12 @@ public class Enemy : Essence
         LookAtPlayer();
 
         if (_playerInAttackRange && _playerInSightRange) AttackPlayer();
+    }
+
+    private void SetAnimIDs()
+    {
+        _animIdDying = Animator.StringToHash("dying");
+        _animIdHit = Animator.StringToHash("hit");
     }
 
     private void LookAtPlayer()
@@ -53,6 +66,19 @@ public class Enemy : Essence
     private void ResetAttack()
     {
         _isAttacking = false;
+    }
+
+    public override void ApplyDamageCallback()
+    {
+        _animator.SetTrigger(_animIdHit);
+    }
+
+    public override void Die()
+    {
+        _animator.SetTrigger(_animIdDying);
+        Destroy(this);
+
+        DieCallback();
     }
 
     public override void DieCallback()

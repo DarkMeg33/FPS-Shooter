@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   _weapons:
-  - {fileID: 11400000, guid: c2af5ff5f5b903347b067e6dbc499a08, type: 2}
+  - {fileID: 11400000, guid: ba80d765d9eb09f47a33af768ad9b4c7, type: 2}
+  - {fileID: 11400000, guid: d3ecd4dfe40bb3648be78c8b432cd56e, type: 2}
   - {fileID: 11400000, guid: 4a2d0b4d37f6c814eb52c0718fb2f09d, type: 2}
-  - {fileID: 11400000, guid: 603e3307a9cad5148952bd30750ec1f8, type: 2}

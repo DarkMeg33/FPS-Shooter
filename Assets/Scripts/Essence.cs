@@ -12,6 +12,7 @@ public abstract class Essence : MonoBehaviour, IHitable
     public void ApplyDamage(int damage)
     {
         _health -= damage;
+        ApplyDamageCallback();
 
         if (_health <= 0)
         {
@@ -19,7 +20,9 @@ public abstract class Essence : MonoBehaviour, IHitable
         }
     }
 
-    public void Die()
+    public abstract void ApplyDamageCallback();
+
+    public virtual void Die()
     {
         Destroy(gameObject);
         DieCallback();

@@ -14,8 +14,8 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(Vector3 origin, Vector3 direction)
     {
-        _audioSource.Play();
-        WeaponData.FireParticle.Play();
+        _audioSource?.Play();
+        //Instantiate(WeaponData.FireParticle, _firePlace.position, Quaternion.identity);
 
         if (Physics.Raycast(origin, direction, out RaycastHit hit, 1000f))
         {
@@ -23,6 +23,9 @@ public class Weapon : MonoBehaviour
             Debug.DrawRay(origin, direction * 100f, Color.yellow, 3600f);
 
             IHitable enemy = hit.transform.gameObject.GetComponentInParent<IHitable>();
+
+            var hitPoint = hit.point;
+            Instantiate(WeaponData.HitParticle, hitPoint, Quaternion.identity);
 
             if (enemy != null)
             {

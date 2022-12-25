@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   _weaponName: Shotgun
-  _icon: {fileID: 21300000, guid: 5a06b9aed7cdb6e43be231c0261dfe7f, type: 3}
+  _icon: {fileID: 21300000, guid: df6d9909f45acb446996bafc525ff6a3, type: 3}
   _damage: 40
-  _totalBulletsCount: 2
-  _currentBulletsCount: 2
   _fireParticle: {fileID: 1982643042460557748, guid: afa328319c23da7479c2252319c98ec5, type: 3}
-  _fireSound: {fileID: 8300000, guid: f4b0be0babd908741a9b607baf456503, type: 3}
-  _weaponPrefab: {fileID: 1897363467659251713, guid: 2516dcdcadddfb14ca085122ddc0beb9, type: 3}
+  _fireSound: {fileID: 8300000, guid: cb05a61709f9b3340a23f5c810ca75fa, type: 3}
+  _weaponPrefab: {fileID: 4556420955474512216, guid: 9734c9e8f06eb2746b8eb6b316b42758, type: 3}
+  _hitParticle: {fileID: 613433886817584986, guid: 9f5fbcfb6299c2b4c912f3ff44f14463, type: 3}
